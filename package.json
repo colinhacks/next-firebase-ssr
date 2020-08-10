@@ -1,0 +1,27 @@
+{
+  "name": "nicetry",
+  "version": "0.1.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "codegen:dev": "nodemon -e ts --ignore generated -x ts-node --project tsconfig.node.json ./scripts/codegen_dev.ts",
+    "codegen:staging": "ts-node --project tsconfig.node.json ./scripts/codegen_staging.ts",
+    "codegen:prod": "ts-node --project tsconfig.node.json ./scripts/codegen_prod.ts",
+    "migrate:dev": "nodemon -e ts --ignore generated -x ts-node --project tsconfig.node.json ./scripts/migrate_dev.ts",
+    "migrate:staging": "ts-node --project tsconfig.node.json ./scripts/migrate_staging.ts",
+    "migrate:prod": "ts-node --project tsconfig.node.json ./scripts/migrate_prod.ts"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.45",
+    "firebase": "^7.17.2",
+    "firebase-admin": "^9.0.0",
+    "next": "^9.5.1",
+    "nookies": "^2.4.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {}
+}
