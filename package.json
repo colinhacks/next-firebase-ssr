@@ -21,7 +21,8 @@
     "next": "^9.5.1",
     "nookies": "^2.4.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "typescript": "^3.9.7"
   },
   "devDependencies": {}
 }

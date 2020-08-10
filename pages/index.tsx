@@ -20,14 +20,16 @@ export default () => {
     <div style={{ padding: '40px' }}>
       <p>{`User ID: ${user ? user.uid : 'no user signed in'}`}</p>
 
-      <Link href="/authenticated">
-        <a>Go to authenticated route</a>
-      </Link>
-
-      <Link href="/login">
-        <a>Login page</a>
-      </Link>
-      <p>{`Client says: ${JSON.stringify('hello.data', null, 2)}`} </p>
+      <p>
+        <Link href="/authenticated">
+          <a>Go to authenticated route</a>
+        </Link>
+      </p>
+      <p>
+        <Link href="/login">
+          <a>Login</a>
+        </Link>
+      </p>
     </div>
   );
 };

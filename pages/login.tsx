@@ -17,21 +17,26 @@ export default (_props: any) => {
         placeholder={'Email'}
       />
       <input
+        type={'password'}
         value={pass}
         onChange={(e) => setPass(e.target.value)}
         placeholder={'Password'}
       />
       <button
-        onClick={() =>
-          firebaseClient.auth().createUserWithEmailAndPassword(email, pass)
-        }
+        onClick={async () => {
+          await firebaseClient
+            .auth()
+            .createUserWithEmailAndPassword(email, pass);
+          window.location.href = '/';
+        }}
       >
         Create account
       </button>
       <button
-        onClick={() =>
-          firebaseClient.auth().signInWithEmailAndPassword(email, pass)
-        }
+        onClick={async () => {
+          await firebaseClient.auth().signInWithEmailAndPassword(email, pass);
+          window.location.href = '/';
+        }}
       >
         Log in
       </button>
