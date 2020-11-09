@@ -4,6 +4,10 @@ Full Walkthrough and Documentation at https://vriad.com/essays/nextjs-firebase-a
 
 To run this example:
 
-- Clone the repo
-- Add your client and server Firebase credentials to `firebaseClient.ts` and `secret.json` respectively
+- Clone the repo:
+
+  `git clone git@github.com:vriad/next-firebase-ssr.git`
+
+- Add your client and server Firebase credentials to `firebaseClient.ts` and `secret.json` respectively. Alternatively,
+
 - Run `yarn dev`
