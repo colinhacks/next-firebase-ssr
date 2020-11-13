@@ -1,4 +1,4 @@
-import * as firebaseClient from 'firebase/app';
+import firebaseClient from 'firebase/app';
 import 'firebase/auth';
 
 if (typeof window !== 'undefined' && !firebaseClient.apps.length) {
