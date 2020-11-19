@@ -3,13 +3,13 @@ import 'firebase/auth';
 
 if (typeof window !== 'undefined' && !firebaseClient.apps.length) {
   const CLIENT_CONFIG = {
-    apiKey: 'AIzaSyDWxgXXz8mFup-Jh_w_cVkiG-WoFXJGh9M',
-    authDomain: 'bagel-229402.firebaseapp.com',
-    databaseURL: 'https://bagel-229402.firebaseio.com',
-    projectId: 'bagel-229402',
-    storageBucket: 'bagel-229402.appspot.com',
-    messagingSenderId: '507617380644',
-    appId: '1:507617380644:web:f84fa9b35936bab9964bb1',
+    apiKey: 'YOUR_API_KEY_HERE',
+    authDomain: 'YOUR_PROJECT_ID.firebaseapp.com',
+    databaseURL: 'https://YOUR_PROJECT_ID.firebaseio.com',
+    projectId: 'YOUR_PROJECT_ID',
+    storageBucket: 'YOUR_PROJECT_ID.appspot.com',
+    messagingSenderId: 'XXXXXXXXX',
+    appId: '1:XXXXXXXXXXXXX:web:XXXXXXXXXXXXX',
   };
 
   firebaseClient.initializeApp(CLIENT_CONFIG);
