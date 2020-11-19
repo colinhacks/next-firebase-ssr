@@ -2,6 +2,10 @@
 
 This project demonstrates how to implement authenticated server-side rendering with Next.js and Firebase Authentication.
 
+> Update November 19, 2020: A bug has been fixed where the Firebase tokens would expire after an hour without being refreshed. All tokens are now force refreshed every 10 minutes.
+
+> Update November 9, 2020: this repo has been updated to use the [redirect functionality](https://github.com/vercel/next.js/discussions/14890) introduced in `next@9.5.4`. Currently you must be on the `canary` release of Next for this approach to work (`yarn add next@canary`).
+
 ### Versions
 
 - `next@10`
@@ -9,8 +13,6 @@ This project demonstrates how to implement authenticated server-side rendering w
 - `firebase@8`
 - `firebase-admin@9.4`
 - `nookies@2.5`
-
-> Update November 9, 2020: this repo has been updated to use the [redirect functionality](https://github.com/vercel/next.js/discussions/14890) introduced in `next@9.5.4`. Currently you must be on the `canary` release of Next for this approach to work (`yarn add next@canary`).
 
 ### Documentation
 
