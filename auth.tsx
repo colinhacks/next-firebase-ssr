@@ -11,6 +11,7 @@ export function AuthProvider({ children }: any) {
 
   useEffect(() => {
     return firebaseClient.auth().onIdTokenChanged(async (user) => {
+      console.log(`token changed!`);
       if (!user) {
         setUser(null);
         nookies.set(undefined, 'token', '', {});
@@ -24,18 +25,13 @@ export function AuthProvider({ children }: any) {
   }, []);
 
   // force refresh the token every 10 minutes
+
   useEffect(() => {
     const handle = setInterval(async () => {
       const user = firebaseClient.auth().currentUser;
-
       if (user) {
-        // force refresh token
-        const token = await user.getIdToken(true);
-        setUser(user);
-        nookies.set(undefined, 'token', token, {});
-      } else {
-        setUser(null);
-        nookies.set(undefined, 'token', '', {});
+        console.log(`refreshing token!`);
+        await user.getIdToken(true);
       }
     }, 10 * 60 * 1000);
     return () => clearInterval(handle);

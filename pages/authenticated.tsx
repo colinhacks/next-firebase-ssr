@@ -36,7 +36,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   }
 };
 
-export default (
+const AuthenticatedPage = (
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => (
   <div>
@@ -51,3 +51,5 @@ export default (
     </button>
   </div>
 );
+
+export default AuthenticatedPage;
