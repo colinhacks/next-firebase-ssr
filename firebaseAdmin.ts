@@ -10,8 +10,6 @@ if (!privateKey || !clientEmail || !projectId) {
   );
 }
 
-// console.log(serviceAccount);
-
 if (!firebaseAdmin.apps.length) {
   firebaseAdmin.initializeApp({
     credential: firebaseAdmin.credential.cert({

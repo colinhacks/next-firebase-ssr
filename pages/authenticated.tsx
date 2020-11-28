@@ -1,13 +1,14 @@
-import React from 'react';
-import nookies from 'nookies';
-import { firebaseAdmin } from '../firebaseAdmin';
-import { firebaseClient } from '../firebaseClient';
+import React from "react";
+import nookies from "nookies";
+import { firebaseAdmin } from "../firebaseAdmin";
+import { firebaseClient } from "../firebaseClient";
 
-import { InferGetServerSidePropsType, GetServerSidePropsContext } from 'next';
+import { InferGetServerSidePropsType, GetServerSidePropsContext } from "next";
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   try {
     const cookies = nookies.get(ctx);
+    console.log(JSON.stringify(cookies, null, 2));
     const token = await firebaseAdmin.auth().verifyIdToken(cookies.token);
     const { uid, email } = token;
 
@@ -27,7 +28,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
     return {
       redirect: {
         permanent: false,
-        destination: '/login',
+        destination: "/login",
       },
       // `as never` is required for correct type inference
       // by InferGetServerSidePropsType below
@@ -44,7 +45,7 @@ const AuthenticatedPage = (
     <button
       onClick={async () => {
         await firebaseClient.auth().signOut();
-        window.location.href = '/';
+        window.location.href = "/";
       }}
     >
       Sign out
