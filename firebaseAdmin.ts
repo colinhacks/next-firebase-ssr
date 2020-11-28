@@ -1,8 +1,4 @@
 import * as firebaseAdmin from "firebase-admin";
-// import serviceAccount from './secret.json';
-
-// console.log(JSON.stringify(process.env, null, 2));
-// console.log(process.env['PRIVATE_KEY']);
 
 const privateKey = process.env["PRIVATE_KEY"];
 const clientEmail = process.env["CLIENT_EMAIL"];
