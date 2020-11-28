@@ -10,6 +10,9 @@ export function AuthProvider({ children }: any) {
   const [user, setUser] = useState<firebaseClient.User | null>(null);
 
   useEffect(() => {
+    if (typeof window !== undefined) {
+      (window as any).nookies = nookies;
+    }
     return firebaseClient.auth().onIdTokenChanged(async (user) => {
       console.log(`token changed!`);
       if (!user) {
