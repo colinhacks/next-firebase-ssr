@@ -1,5 +1,6 @@
 import React from "react";
 import nookies from "nookies";
+import { useRouter } from 'next/router'
 import { firebaseAdmin } from "../firebaseAdmin";
 import { firebaseClient } from "../firebaseClient";
 
@@ -37,20 +38,28 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   }
 };
 
-const AuthenticatedPage = (
+function AuthenticatedPage(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
-) => (
-  <div>
-    <p>{props.message!}</p>
-    <button
-      onClick={async () => {
-        await firebaseClient.auth().signOut();
-        window.location.href = "/";
-      }}
-    >
-      Sign out
-    </button>
-  </div>
-);
+) {
+  const router = useRouter();
+
+  return (
+    <div>
+      <p>{props.message!}</p>
+      <button
+        onClick={async () => {
+          await firebaseClient
+            .auth()
+            .signOut()
+            .then(() => {
+              router.push("/");
+            });
+        }}
+      >
+        Sign out
+      </button>
+    </div>
+  );
+}
 
 export default AuthenticatedPage;
