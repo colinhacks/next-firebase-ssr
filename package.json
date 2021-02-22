@@ -15,6 +15,7 @@
     "migrate:prod": "ts-node --project tsconfig.node.json ./scripts/migrate_prod.ts"
   },
   "dependencies": {
+<<<<<<< HEAD
     "firebase": "^8.0.2",
     "firebase-admin": "^9.5.0",
     "next": "10",
@@ -28,3 +29,16 @@
     "@types/react": "^17.0.2"
   }
 }
+=======
+    "@types/react": "^16.9.56",
+    "firebase": "^8.0.2",
+    "firebase-admin": "^9.4.0",
+    "next": "10",
+    "nookies": "^2.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "typescript": "^4.0.5"
+  },
+  "devDependencies": {}
+}
+>>>>>>> 0eb7c262f8bbc6ab3858d7926e3cda2452af7026
