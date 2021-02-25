@@ -19,7 +19,7 @@ export function AuthProvider({ children }: any) {
         console.log(`no token found...`);
         setUser(null);
         nookies.destroy(null, "token");
-        nookies.set(null, "token", "", {});
+        nookies.set(null, "token", "", {path: '/'});
         return;
       }
 
@@ -27,7 +27,7 @@ export function AuthProvider({ children }: any) {
       const token = await user.getIdToken();
       setUser(user);
       nookies.destroy(null, "token");
-      nookies.set(null, "token", token, {});
+      nookies.set(null, "token", token, {path: '/'});
     });
   }, []);
 
