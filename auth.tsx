@@ -18,16 +18,16 @@ export function AuthProvider({ children }: any) {
       if (!user) {
         console.log(`no token found...`);
         setUser(null);
-        nookies.destroy(null, "token");
-        nookies.set(null, "token", "", {path: '/'});
+        nookies.destroy(null, "__session");
+        nookies.set(null, "__session", "", {path: '/'});
         return;
       }
 
       console.log(`updating token...`);
       const token = await user.getIdToken();
       setUser(user);
-      nookies.destroy(null, "token");
-      nookies.set(null, "token", token, {path: '/'});
+      nookies.destroy(null, "__session");
+      nookies.set(null, "__session", token, {path: '/'});
     });
   }, []);
 
