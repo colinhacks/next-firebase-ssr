@@ -1,5 +1,9 @@
-import firebaseClient from "firebase/app";
-import "firebase/auth";
+import { getApps, initializeApp } from "firebase/app";
+import {
+  getAuth,
+  setPersistence,
+  browserSessionPersistence,
+} from "firebase/auth";
 
 /*
 
@@ -22,12 +26,8 @@ const CLIENT_CONFIG = {
   appId: "1:364051821923:web:658516ef4516511223cf56",
 };
 
-if (typeof window !== "undefined" && !firebaseClient.apps.length) {
-  firebaseClient.initializeApp(CLIENT_CONFIG);
-  firebaseClient
-    .auth()
-    .setPersistence(firebaseClient.auth.Auth.Persistence.SESSION);
-  (window as any).firebase = firebaseClient;
-}
+const app = getApps().length < 1 ? initializeApp(CLIENT_CONFIG) : undefined;
+const auth = getAuth(app);
+setPersistence(auth, browserSessionPersistence);
 
-export { firebaseClient };
+export { auth };
