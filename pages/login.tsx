@@ -1,41 +1,41 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { firebaseClient } from '../firebaseClient';
+import React, { useState } from "react";
+import Link from "next/link";
+import { auth } from "../firebaseClient";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 export default (_props: any) => {
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
   return (
     <div>
-      <Link href="/">
-        <a>Go back to home page</a>
-      </Link>
+      <Link href="/">Go back to home page</Link>
       <br />
       <input
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder={'Email'}
+        placeholder={"Email"}
       />
       <input
-        type={'password'}
+        type={"password"}
         value={pass}
         onChange={(e) => setPass(e.target.value)}
-        placeholder={'Password'}
+        placeholder={"Password"}
       />
       <button
         onClick={async () => {
-          await firebaseClient
-            .auth()
-            .createUserWithEmailAndPassword(email, pass);
-          window.location.href = '/';
+          await createUserWithEmailAndPassword(auth, email, pass);
+          window.location.href = "/";
         }}
       >
         Create account
       </button>
       <button
         onClick={async () => {
-          await firebaseClient.auth().signInWithEmailAndPassword(email, pass);
-          window.location.href = '/';
+          await signInWithEmailAndPassword(auth, email, pass);
+          window.location.href = "/";
         }}
       >
         Log in
