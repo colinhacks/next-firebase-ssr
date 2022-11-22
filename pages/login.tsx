@@ -11,9 +11,7 @@ export default (_props: any) => {
   const [pass, setPass] = useState("");
   return (
     <div>
-      <Link href="/" legacyBehavior>
-        <a>Go back to home page</a>
-      </Link>
+      <Link href="/">Go back to home page</Link>
       <br />
       <input
         value={email}
